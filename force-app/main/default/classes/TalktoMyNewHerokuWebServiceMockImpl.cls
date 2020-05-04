@@ -1,12 +1,12 @@
-public class TalktoMyNewHerokuWebServiceMockImpl {
+public class TalktoMyNewHerokuWebServiceMockImpl implements HttpCalloutMock{
 
-    public HTTPResponse respond(HTTPRequest req){
-    // System.assertEquals('callout:Yahoo_Finance/stock/v2/get-summary?symbol=CRM', req.getEndpoint());
-       HttpResponse res = new HttpResponse();
-       res.setHeader('Content-Type', 'application/json');
-       res.setBody('{"example":"test"}');
-       res.setStatusCode(200);
-       return res;
+    Public  HTTPResponse respond(HTTPRequest req){
+        System.assertEquals('callout:LWC_Python_Heroku_Web_Service/getJobs/CRM/categories', req.getEndpoint());
+        HttpResponse res = new HttpResponse();
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{"example":"test"}');
+        res.setStatusCode(200);
+        return res;
    }
    
 }
