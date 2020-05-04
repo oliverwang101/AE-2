@@ -49,6 +49,7 @@ export default class DisplayAccountIntelligence extends LightningElement {
                     }
                     else {
                         this.jobsExecutives = null;
+                        this.goGetCoffee = false;
                         this.jobs = output;
                         //console.log('so my POST request works and is going in final if statement');
                         console.log("Read my books for jobs ... ", this.jobs);    
@@ -84,6 +85,7 @@ export default class DisplayAccountIntelligence extends LightningElement {
                     else {
                         this.jobs = null;
                         this.jobsExecutives = output;
+                        this.goGetCoffee = false;
                         //console.log('so my POST request works and is going in final if statement');
                         console.log("Read my books for jobs ... ", this.jobsExecutives);
                     }
