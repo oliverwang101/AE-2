@@ -8,18 +8,30 @@
                                     onclick={handleSearchClick}
                                 ></lightning-button>
                     </lightning-layout-item>
-                    <template if:true={jobs}>
-                        <div class="slds-p-around_small lgc-bg">
-                            <p class="slds-p-horizontal_small"><b> </b></p>
-                            <p class="slds-p-horizontal_small" key={jobs.index}><b>Design: </b>{jobs.Design}</p>
-                            <p class="slds-p-horizontal_small" key={jobs.index}><b>Engineering/Information Technology: </b></p>
-                            <p class="slds-p-horizontal_small" key={jobs.index}><b>Executive: </b>{jobs.Executive}</p>
-                            <p class="slds-p-horizontal_small" key={jobs.index}><b>Marketing: </b>{jobs.Marketing}</p>
-                            <p class="slds-p-horizontal_small" key={jobs.index}><b>Other: </b>{jobs.Other}</p>
-                            <p class="slds-p-horizontal_small"><b> </b></p>
-                        </div>
-                       
-                    </template>
+                        <template if:true={jobs}>
+                            <div class="slds-p-around_small lgc-bg">
+                                <p class="slds-p-horizontal_small"><b> </b></p>
+                                <p class="slds-p-horizontal_small" key={jobs.index}><b>Design: </b>{jobs.Design}</p>
+                                <p class="slds-p-horizontal_small" key={jobs.index}><b>Engineering/Information Technology: </b></p>
+                                <p class="slds-p-horizontal_small" key={jobs.index}><b>Executive: </b>{jobs.Executive}</p>
+                                <p class="slds-p-horizontal_small" key={jobs.index}><b>Marketing: </b>{jobs.Marketing}</p>
+                                <p class="slds-p-horizontal_small" key={jobs.index}><b>Other: </b>{jobs.Other}</p>
+                                <p class="slds-p-horizontal_small"><b> </b></p>
+                            </div>
+                        </template>
+                        <template if:true={goGetCoffee}>
+                            <div class="demo-only demo-only demo-only_viewport" style="height:6rem">
+                                <div role="status" class="slds-spinner slds-spinner_medium">
+                                <span class="slds-assistive-text">Loading</span>
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                                </div>
+                            </div>
+                        </template>
+        
+                        <template if:true={error}>
+                            <p><b>Got an Error ... No Jobs found !</b></p>
+                        </template>
                 </lightning-tab>
                 <lightning-tab label="Executive Job Listings" title="2nd tab extended title">
                      <lightning-layout-item class="slds-text-heading--medium slds-p-left_small slds-p-vertical--medium">
@@ -39,16 +51,22 @@
                                     </lightning-tile>
                                 </div>
                             </template>
+                            <template if:true={goGetCoffee}>
+                                <div class="demo-only demo-only demo-only_viewport" style="height:6rem">
+                                    <div role="status" class="slds-spinner slds-spinner_medium">
+                                    <span class="slds-assistive-text">Loading</span>
+                                    <div class="slds-spinner__dot-a"></div>
+                                    <div class="slds-spinner__dot-b"></div>
+                                    </div>
+                                </div>
+                            </template>
+            
+                            <template if:true={error}>
+                                <p><b>Got an Error ... No Jobs found !</b></p>
+                            </template>
                         </div>
-                       
                     </template>
-                </lightning-tab>
+                </lightning-tab>                
             </lightning-tabset>
-            <template if:true={error}>
-                <!--
-                    <c-error-panel errors={error}></c-error-panel>
-                -->
-                <p><b>Got an Error ... No Jobs found !</b></p>
-            </template>
-</lightning-card>
+    </lightning-card>
 </template>

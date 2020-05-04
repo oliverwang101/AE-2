@@ -13,6 +13,7 @@ export default class DisplayAccountIntelligence extends LightningElement {
     error;
     my_name;
     postHappen;
+    goGetCoffee = false;
     
     @api recordId;
 
@@ -40,8 +41,10 @@ export default class DisplayAccountIntelligence extends LightningElement {
                 console.log("Read length for jobs ... ", output.length);
                 this.error = undefined;
                 if (output !== undefined) {
-                    if (output.length === 3) {
+                    if (result.length == 3 && output.length === undefined) {
                         // postAccounttoHerokuWS() method
+                        console.log('its comming in the if condition');
+                        this.goGetCoffee = true;
                         this.postToHerokuWebService();
                     }
                     else {
@@ -64,7 +67,6 @@ export default class DisplayAccountIntelligence extends LightningElement {
     }
 
 
-
     handleJobsCategoriesSearchClick() {
         console.log("My name is ... my name is - handleJobsCategoriesSearchClick ...", this.my_name);
         getJobsFromHerokuWS({ account_name: this.my_name, resource_path: 'executives'})
@@ -76,6 +78,7 @@ export default class DisplayAccountIntelligence extends LightningElement {
                 if (output !== undefined) {
                     if (output.length === 0) {
                         // postAccounttoHerokuWS() method
+                        this.goGetCoffee = true;
                         this.postToHerokuWebService();
                     }
                     else {
