@@ -1,6 +1,6 @@
 <template>
     <lightning-card title="My Account Intelligence" icon-name="custom:custom63">
-        <div class="slds-m-around_medium">
+        <!-- <div class="slds-m-around_medium"> -->
             <!-- <h2 class="slds-text-heading--medium slds-p-left_small slds-p-vertical--medium"></h2> -->
             
             <lightning-layout vertical-align="end" class="slds-m-bottom_small">
@@ -8,7 +8,7 @@
                 <!-- ANOTHER BUTTON FOR JOBS -->
                 <lightning-layout-item class="slds-text-heading--medium slds-p-left_small slds-p-vertical--medium">
                     <lightning-button
-                        label="Search Jobs V2"
+                        label="Job Categories"
                         onclick={handleSearchClick}
                     ></lightning-button>
                 </lightning-layout-item>
@@ -16,7 +16,7 @@
                 <!--- ANOTHER BUTTON FOR CATEGORIES -->
                 <lightning-layout-item class="slds-text-heading--medium slds-p-left_small slds-p-vertical--medium">
                     <lightning-button
-                        label="Search Categories V2"
+                        label="Open Executives Jobs"
                         onclick={handleJobsCategoriesSearchClick}
                     ></lightning-button>
                 </lightning-layout-item>
@@ -24,12 +24,11 @@
             </lightning-layout>
 
             <template if:true={jobs}>
-                <p class="slds-p-horizontal_small"><b> </b></p>
                 <p class="slds-p-horizontal_small" key={jobs.index}><b>Design: </b>{jobs.Design}</p>
                 <p class="slds-p-horizontal_small" key={jobs.index}><b>Executive: </b>{jobs.Executive}</p>
                 <p class="slds-p-horizontal_small" key={jobs.index}><b>Marketing: </b>{jobs.Marketing}</p>
+                <p class="slds-p-horizontal_small" key={jobs.index}><b>Other: </b>{jobs.Sales}</p>
                 <p class="slds-p-horizontal_small" key={jobs.index}><b>Other: </b>{jobs.Other}</p>
-                <p class="slds-p-horizontal_small"><b> </b></p>
             </template>
             
             <template if:true={jobsExecutives}>
@@ -42,14 +41,30 @@
                 </template>
             </template>
             
-            
+            <template if:true={goGetCoffee}>
+                <div class="demo-only demo-only demo-only_viewport" style="height:6rem">
+                    <div role="status" class="slds-spinner slds-spinner_medium">
+                      <span class="slds-assistive-text">Loading</span>
+                      <div class="slds-spinner__dot-a"></div>
+                      <div class="slds-spinner__dot-b"></div>
+                    </div>
+                </div>
+                <!--
+                <section aria-label="Dialog title" aria-describedby="popover-body-id" class="slds-nubbin_left" role="dialog">
+                    <div id="popover-body-id" class="slds-popover__body">
+                      <p>Please go have a Cup'O Coffee, while we prepare this data for you. Click me after a few mins!</p>
+                    </div>
+                </section>
+                -->
+            </template>
+
             <template if:true={error}>
                 <!--
                     <c-error-panel errors={error}></c-error-panel>
                 -->
                 <p><b>Got an Error ... No Jobs found !</b></p>
             </template>
-        </div>
+        <!-- </div> --> 
 
     </lightning-card>
 </template>
