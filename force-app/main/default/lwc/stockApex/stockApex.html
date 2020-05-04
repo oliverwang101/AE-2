@@ -1,0 +1,18 @@
+<template>
+        <lightning-card title="Stock Summary Info for:" icon-name="custom:custom63">
+            <h2 class="slds-text-heading--medium slds-p-left_small slds-p-vertical--medium">
+               {param}
+            </h2>
+            <p class="slds-p-horizontal_small"> <b>Employees :</b> {fullTime_Employees} </p>
+
+            <p class="slds-p-horizontal_small"> <b>Profit Margins :</b> {profit_Margins}</p>
+
+            <p class="slds-p-horizontal_small"> <b>Annual Revenue :</b> {yearly_Revenue}</p>
+
+            <p class="slds-p-horizontal_small"> <b>Annual Earnings :</b> {yearly_Earnings}</p>
+
+            <p class="slds-p-horizontal_small"> <b>Last Quarter's Revenue:</b> {recent_Quarter} </p>
+
+            <p slot="footer"> </p>
+    </lightning-card>
+</template>
