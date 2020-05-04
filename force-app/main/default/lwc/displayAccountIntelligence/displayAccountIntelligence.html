@@ -1,38 +1,53 @@
 <template>
-    <lightning-card title="DisplayAccountIntelligence" icon-name="custom:custom63">
+    <lightning-card title="My Account Intelligence" icon-name="custom:custom63">
         <div class="slds-m-around_medium">
+            <!-- <h2 class="slds-text-heading--medium slds-p-left_small slds-p-vertical--medium"></h2> -->
+            
             <lightning-layout vertical-align="end" class="slds-m-bottom_small">
-                <!--
-                <lightning-layout-item flexibility="grow">
-                    <lightning-input
-                        type="search"
-                        onchange={handleSearchKeyChange}
-                        label="Search jobs"
-                        value={searchKey}
-                    ></lightning-input>
-                </lightning-layout-item>
-                -->
-                <lightning-layout-item class="slds-p-left_xx-small">
+                
+                <!-- ANOTHER BUTTON FOR JOBS -->
+                <lightning-layout-item class="slds-text-heading--medium slds-p-left_small slds-p-vertical--medium">
                     <lightning-button
-                        label="Search Jobs"
+                        label="Search Jobs V2"
                         onclick={handleSearchClick}
                     ></lightning-button>
                 </lightning-layout-item>
+
+                <!--- ANOTHER BUTTON FOR CATEGORIES -->
+                <lightning-layout-item class="slds-text-heading--medium slds-p-left_small slds-p-vertical--medium">
+                    <lightning-button
+                        label="Search Categories V2"
+                        onclick={handleJobsCategoriesSearchClick}
+                    ></lightning-button>
+                </lightning-layout-item>
+            
             </lightning-layout>
+
             <template if:true={jobs}>
-                <template for:each={jobs} for:item="job" for:index="index">
-                    <p key={job.index}><b>Category: </b>{job.category}</p>
-                    <p key={job.index}><b>Company: </b>{job.company}</p>
-                    <p key={job.index}><b>Job Id: </b>{job.id}</p>
-                    <p key={job.index}><b>TimeSincePost: </b>{job.timeSincePost}</p>
-                    <p key={job.index}><b>Title: </b>{job.title}</p>
-                    
+                <p class="slds-p-horizontal_small"><b> </b></p>
+                <p class="slds-p-horizontal_small" key={jobs.index}><b>Design: </b>{jobs.Design}</p>
+                <p class="slds-p-horizontal_small" key={jobs.index}><b>Executive: </b>{jobs.Executive}</p>
+                <p class="slds-p-horizontal_small" key={jobs.index}><b>Marketing: </b>{jobs.Marketing}</p>
+                <p class="slds-p-horizontal_small" key={jobs.index}><b>Other: </b>{jobs.Other}</p>
+                <p class="slds-p-horizontal_small"><b> </b></p>
+            </template>
+            
+            <template if:true={jobsExecutives}>
+                <template for:each={jobsExecutives} for:item="jobsExecutive" for:index="index">
+                    <p class="slds-p-horizontal_small" key={jobsExecutive.index}><b>Category: </b>{jobsExecutive.category}</p>
+                    <p class="slds-p-horizontal_small" key={jobsExecutive.index}><b>Company: </b>{jobsExecutive.company}</p>
+                    <p class="slds-p-horizontal_small" key={jobsExecutive.index}><b>Job Id: </b>{jobsExecutive.id}</p>
+                    <p class="slds-p-horizontal_small" key={jobsExecutive.index}><b>TimeSincePost: </b>{jobsExecutive.timeSincePost}</p>
+                    <p class="slds-p-horizontal_small" key={jobsExecutive.index}><b>Title: </b>{jobsExecutive.title}</p>
                 </template>
             </template>
+            
+            
             <template if:true={error}>
                 <!--
                     <c-error-panel errors={error}></c-error-panel>
                 -->
+                <p><b>Got an Error ... No Jobs found !</b></p>
             </template>
         </div>
 
