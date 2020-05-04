@@ -4,12 +4,12 @@
                 <lightning-tab label="Job Categories Aggregate">
                     <lightning-layout-item class="slds-text-heading--medium slds-p-left_small slds-p-vertical--medium">
                                 <lightning-button
-                                    label="Search Jobs V2"
+                                    label="Get Job Categories"
                                     onclick={handleSearchClick}
                                 ></lightning-button>
                     </lightning-layout-item>
                         <template if:true={jobs}>
-                            <div class="slds-p-around_small lgc-bg">
+                            <div class="slds-p-around_small slds-m-top_x-small lgc-bg">
                                 <p class="slds-p-horizontal_small"><b> </b></p>
                                 <p class="slds-p-horizontal_small" key={jobs.index}><b>Design: </b>{jobs.Design}</p>
                                 <p class="slds-p-horizontal_small" key={jobs.index}><b>Engineering/Information Technology: </b></p>
@@ -36,7 +36,7 @@
                 <lightning-tab label="Executive Job Listings" title="2nd tab extended title">
                      <lightning-layout-item class="slds-text-heading--medium slds-p-left_small slds-p-vertical--medium">
                                 <lightning-button
-                                    label="Search Categories V2"
+                                    label="Get Executive Jobs"
                                     onclick={handleJobsCategoriesSearchClick}
                                 ></lightning-button>
                     </lightning-layout-item>
